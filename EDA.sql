@@ -12,11 +12,11 @@ Limit 5;
 
 -- Answer:
 -- Category          Sales
--- Beverages   		   $286527
--- Dairy Products 	 $251331
--- Meat & Poultry  	 $178189
--- Confections 		   $177099
--- Seafood 			     $141623
+-- Beverages   	    $286527
+-- Dairy Products   $251331
+-- Meat & Poultry   $178189
+-- Confections      $177099
+-- Seafood          $141623
 
 -- Which products generated the most revenue?:
 SELECT p.productName as Product, ROUND(SUM(od.unitPrice * od.quantity)) as Sales
@@ -27,12 +27,12 @@ ORDER BY Sales DESC
 LIMIT 5;
 
 -- Answer:
--- Product         			Sales
--- Cote de Blaye   			$149984
--- Thuringer Rostbratwurst 	 $87736
--- Raclette Courdavault  	 $76296
--- Camembert Pierrot 		 $50286
--- Tarte au sucre 			 $49828
+-- Product                   Sales
+-- Cote de Blaye            $149984
+-- Thuringer Rostbratwurst   $87736
+-- Raclette Courdavault      $76296
+-- Camembert Pierrot         $50286
+-- Tarte au sucre            $49828
 
 -- Which products are frequently purchased together?:
 SELECT p1.productName AS Product1, p2.productName AS Product2, COUNT(od1.orderID) AS OrderCount
@@ -46,12 +46,12 @@ ORDER BY orderCount DESC
 LIMIT 5;
 
 -- Answer:
--- Product1					Product2         		OrderCount
--- Sir Rodney's Scones   	Sirop d'erable				8
--- Pavlova 					Gorgonzola Telino			7
--- Pavlova					Tarte au sucre				6
--- Pavlova 					Camembert Pierrot			6
--- Nord-Ost Matjeshering 	Tourtiere 					6
+-- Product1                Product2          OrderCount
+-- Sir Rodney's Scones     Sirop d'erable        8
+-- Pavlova                 Gorgonzola Telino     7
+-- Pavlova                 Tarte au sucre        6
+-- Pavlova                 Camembert Pierrot     6
+-- Nord-Ost Matjeshering   Tourtiere             6
 
 -- Which customers have placed the most orders?
 SELECT c.companyName, COUNT(o.orderID) as orderCount
@@ -62,12 +62,12 @@ ORDER BY orderCount DESC
 Limit 5;
 
 -- Answer:
--- CompanyName         				OrderCount
--- Save-a-lot Markets   				31
--- Ernst Handel 						30
--- QUICK-Stop  							28
--- Folk och fa HB 	 					19
--- Hungry Owl All-Night Grocers		 	19
+-- CompanyName                      OrderCount
+-- Save-a-lot Markets                  31
+-- Ernst Handel                        30
+-- QUICK-Stop                          28
+-- Folk och fa HB                      19
+-- Hungry Owl All-Night Grocers        19
 
 -- Who are the top 5 customers by the generated sales?:
 SELECT c.companyName AS CompanyName, SUM(p.unitPrice * od.quantity) AS Sales
@@ -80,12 +80,12 @@ ORDER BY Sales DESC
 LIMIT 5;
 
 -- Answer:
--- CompanyName         				Sales
--- QUICK-Stop   					$122252
--- Save-a-lot Markets 				$121121
--- Ernst Handel  					$120625
--- Hungry Owl All-Night Grocers 	 $60498
--- Rattlesnake Canyon Grocery 		 $58639
+-- CompanyName                       Sales
+-- QUICK-Stop                       $122252
+-- Save-a-lot Markets               $121121
+-- Ernst Handel                     $120625
+-- Hungry Owl All-Night Grocers      $60498
+-- Rattlesnake Canyon Grocery        $58639
 
 -- What is the average order value for each customer?:
 SELECT c.companyName, AVG(o.freight) as avgOrderValue
@@ -96,12 +96,12 @@ ORDER BY avgOrderValue DESC
 LIMIT 5;
 
 -- Answer:
--- CompanyName         			Average Order Value
--- Save-a-lot Markets   			$216.8065
--- Ernst Handel 					$207.5000
--- QUICK-Stop 						$201.8214
--- Queen Cozinha 					$152.4615
--- Hungry Owl All-Night Grocers 	$145.0526
+-- CompanyName                Average Order Value
+-- Save-a-lot Markets             $216.8065
+-- Ernst Handel                   $207.5000
+-- QUICK-Stop                     $201.8214
+-- Queen Cozinha                  $152.4615
+-- Hungry Owl All-Night Grocers   $145.0526
 
 -- What are the cutomer key markets (countries) ranked by sales?:
 SELECT c.country AS Country, SUM(od.unitPrice * od.quantity) as Sales
@@ -129,9 +129,9 @@ ORDER BY shipmentsProcessed DESC;
 
 -- Answer:
 -- CompanyName        shipmentsProcessed
--- United Package   	    326
--- Federal Shipping 		255
--- Speedy Express			249
+-- United Package            326
+-- Federal Shipping          255
+-- Speedy Express            249
 
 -- What is the average shipment delay for each shipper?
 SELECT s.companyName, AVG(TIMESTAMPDIFF(DAY, orderDate, shippedDate)) as avgShipmentDelay
@@ -143,6 +143,6 @@ ORDER BY avgShipmentDelay DESC;
 
 -- Answer:
 -- CompanyName        avgShipmentDelay
--- United Package   	   9.2349
--- Federal Shipping 	   8.5714
--- Speedy Express		   7.4739
+-- United Package          9.2349
+-- Federal Shipping        8.5714
+-- Speedy Express          7.4739

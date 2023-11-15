@@ -113,12 +113,12 @@ ORDER BY Sales DESC
 Limit 5;
 
 -- Answer:
--- Country        Sales
--- USA   	    $263566.98
--- Germany 		$244640.63
--- Austria		$139496.63
--- Brazil 		$114968.48
--- France 		 $85498.76 
+-- Country          Sales
+-- USA            $263566.98
+-- Germany        $244640.63
+-- Austria        $139496.63
+-- Brazil         $114968.48
+-- France          $85498.76 
 
 -- Which shipping companies have processed the highest number of shipments?
 SELECT s.companyName, COUNT(o.shipperID) as shipmentsProcessed

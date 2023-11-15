@@ -11,12 +11,12 @@ ORDER BY Sales DESC
 Limit 5;
 
 -- Answer:
--- Category         Sales
--- Beverages   		$286527
--- Dairy Products 	$251331
--- Meat & Poultry  	$178189
--- Confections 		$177099
--- Seafood 			$141623
+-- Category          Sales
+-- Beverages   		   $286527
+-- Dairy Products 	 $251331
+-- Meat & Poultry  	 $178189
+-- Confections 		   $177099
+-- Seafood 			     $141623
 
 -- Which products generated the most revenue?:
 SELECT p.productName as Product, ROUND(SUM(od.unitPrice * od.quantity)) as Sales
